@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package payment;
+
+service CardService {
+    rpc Validate (CardRequest) returns (CardResponse);
+}
+
+message CardRequest {
+    string card_number = 1;
+    int32 expiration_month = 2;
+    int32 expiration_year = 3;
+}
+
+message CardResponse {
+    bool valid = 1;
+    Error error = 2;
+}
+
+message Error {
+    string code = 1;
+    string message = 2;
+}

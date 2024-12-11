@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    card_validator:
+        container_name: card_validator
+        build:
+#            context: ./docker/node
+            dockerfile: Dockerfile
+        ports:
+            - "3000:5000"
+        environment:
+            - NODE_ENV=production
