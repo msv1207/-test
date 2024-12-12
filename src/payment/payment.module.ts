@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CardService } from './card.service';
 import { CardController } from './card.controller';
-import { CardValidator } from "./card-validator";
+import { LuhnCardValidator } from "./luhn-card-validator";
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 
@@ -20,7 +20,7 @@ import { join } from 'path';
         ]),
     ],
     controllers: [CardController],
-    providers: [CardService, CardValidator],
+    providers: [CardService, LuhnCardValidator],
 })
 
 export class PaymentModule {}

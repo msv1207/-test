@@ -1,14 +1,14 @@
 import { CardService } from '../src/payment/card.service';
-import { CardValidator } from '../src/payment/card-validator';
+import { LuhnCardValidator } from '../src/payment/luhn-card-validator';
 import { CardDTO } from '../src/payment/dto/card.dto';
 import { ErrorEnum } from "../src/payment/enum/error.enum";
 
 describe('CardService', () => {
     let service: CardService;
-    let validator: CardValidator;
+    let validator: LuhnCardValidator;
 
     beforeEach(() => {
-        validator = new CardValidator();
+        validator = new LuhnCardValidator();
         service = new CardService(validator);
     });
 
